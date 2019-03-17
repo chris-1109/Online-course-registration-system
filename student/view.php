@@ -32,11 +32,11 @@ $status=$_POST['status'];
 
 $sql= "update registered set teacher='$teacher',slot='$slot',status='$status' where user_id='$student' and c_id='$c_id'";
 $result = mysqli_query($conn, $sql);
-if($status='Registered'){
+if($status=='Registered'){
     $sql1 = "update faculty set seats = seats - 1 where teacher='$teacher' and c_id='$c_id' and slot='$slot'";
 }
     else{
-        $sql1 = "update faculty set seats = seats - 1 where teacher='$teacher' and c_id='$c_id' and slot='$slot'";
+        $sql1 = "update faculty set waiting = waiting - 1 where teacher='$teacher' and c_id='$c_id' and slot='$slot'";
     }
     mysqli_query($conn, $sql1);
 }        
@@ -46,7 +46,7 @@ $name='';
 $sql = "SELECT c.c_name,c.c_id,u.fname,u.mname,u.lname,r.slot,r.status,u.user_id FROM registered r,user u,courses c where r.user_id='$student' and u.user_id=r.teacher and r.c_id=c.c_id";
 
 	$result = mysqli_query($conn, $sql);
-	
+        
 
 	if (mysqli_num_rows($result) > 0) {
         echo "<table><tr><th>S_no</th><th>COURSE_ID</th><th>Course name</th><th>TEACHER</th><th>SLOT</th><th>STATUS</th><th>ACTION</th></tr>";
@@ -59,7 +59,13 @@ $sql = "SELECT c.c_name,c.c_id,u.fname,u.mname,u.lname,r.slot,r.status,u.user_id
             <input type='hidden' name='teacher' value='".$row["user_id"]."'>
             <input type='hidden' name='slot' value='".$row["slot"]."'>
             <input type='hidden' name='status' value='".$row["status"]."'>
-            <input type='submit' value='modify' class='submit'/>
+            <input type='submit' value='modify' class='submit'/></form>
+            <form method='post' action='delete.php'>
+            <input type='hidden' name='c_id' value='".$row["c_id"]."'>
+            <input type='hidden' name='teacher' value='".$row["user_id"]."'>
+            <input type='hidden' name='slot' value='".$row["slot"]."'>
+            <input type='hidden' name='status' value='".$row["status"]."'>
+            <input type='submit' value='delete' class='submit'/></form>
             </td></tr>";}
     echo "</table>";
     }

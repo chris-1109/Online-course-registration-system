@@ -11,25 +11,21 @@ th, td {
 
 tr:nth-child(even) {background-color: gainsboro;}
 
-ul {padding: 0;
+ul ,button {padding: 0;
     list-style-type: none;
     overflow: hidden;
     background-color: cornflowerblue;
     position: -webkit-sticky;
     position: sticky;
     font-size: 25px;
+    outline: none;
 }
 
-li a {
-    display: block;
+button {width: 10%;
     color: white;
     text-align: center;
-    padding: 15px 20px;
-    text-decoration: none;
-}
-
-li a:hover,li a:focus {
-    background-color: darkcyan;
+    padding: 10px 10px;
+    border-radius: 30px;
 }
 
 * {
@@ -37,9 +33,10 @@ li a:hover,li a:focus {
 }
 
 input[type=text], .password, .number, select, textarea {
+    outline: none;
     width: 100%;
     padding: 12px;
-    border-radius: 10px;
+    border-radius: 20px;
     border: 1px solid #ccc;
     resize: vertical;
 }
@@ -54,12 +51,13 @@ label {
     color: white;
     padding: 12px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 30px;
     cursor: pointer;
     font-size: 30px;
+    outline: none;
 }
 
-.submit2:hover, .submit:focus{
+.submit2:hover, .submit:focus, button:hover, button:focus {
     background-color: darkcyan;
 }
 
@@ -94,9 +92,9 @@ label {
     }
 }
 
-.submit{
+.submit{outline: none;
         padding: 10px 20px;
-        border-radius: 15px;
+        border-radius: 30px;
         background-color: #4CAF50;
         float: none;
 }

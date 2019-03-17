@@ -40,7 +40,7 @@ if($status='Registered'){
         $sql1 = "update faculty set seats = seats - 1 where teacher='$teacher' and c_id='$c_id' and slot='$slot'";
     }
     mysqli_query($conn, $sql1);
-    echo "<br><br><h1 align='center'>The course is registered successfully</h1>";
+    echo "<br><br><h1 align='center'>The course $c_id is registered successfully</h1>";
 }
 else{
 $search=$_GET['search'];

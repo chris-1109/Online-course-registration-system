@@ -33,7 +33,7 @@ $status=$_POST['status'];
 
 $sql = "insert into registered values('$user', '$c_id', '$teacher' , '$slot', '$status')";
 $result = mysqli_query($conn, $sql);
-    if($status='Registered'){
+    if($status=='Registered'){
     $sql1 = "update faculty set seats = seats - 1 where teacher='$teacher' and c_id='$c_id' and slot='$slot'";}
     else{
         $sql1 = "update faculty set waiting = waiting - 1 where teacher='$teacher' and c_id='$c_id' and slot='$slot'";}
@@ -55,6 +55,7 @@ $sql = "sELECT * FROM courses where c_id not in (select c_id from registered whe
             </form><br></td></tr>";}
     echo "</table>";
     }
+        else{echo "<br><br><h1 align='center'>You have no courses left to register</h1>";}
         
         mysqli_close($conn);
 ?>

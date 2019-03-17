@@ -56,25 +56,7 @@ $sql = "select * from faculty f,user u where f.c_id='$c_id' and f.teacher=u.user
     }
     mysqli_close($conn);}
 else{
-        ?>
-    <br><br>
-    <h1 align='center'>Enter course name / course id to search</h1>
-    <form method='GET' action='search2.php'>
-             <div class='row'>
-      <div class='col-25'>
-        <label>KEY WORD :</label>
-      </div>
-      <div class='col-75'>
-          <input type='text' name='search' placeholder='search' autocomplete='off'/>
-          </div>
-    </div>		
-    <br><br><br><br><br>
-    <input type='submit' value='search' class='submit2'/>
-    </form>
-    
-<?php
-}
-        
+        echo "<br><br><h1 align='center'>Invalid request</h1>";}   
 ?>
     </body>
 </html>

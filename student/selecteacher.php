@@ -43,7 +43,7 @@ $sql = "select * from faculty f,user u where f.c_id='$c_id' and f.teacher=u.user
             <input type='hidden' name='slot' value='".$row["slot"]."'>";
             if($row["seats"] > 0){
             echo "<input type='hidden' name='status' value='Registered'>
-            <input type='submit' name='submit' value='Register' class='submit'>";}
+            <input type='submit' name='submit' value='Register' class='submit'></form>";}
             else if($row["waiting"] > 0){
             echo "<input type='hidden' name='status' value='waiting'>
             <input type='submit' name='submit' value='Wait list' class='submit'>
